@@ -269,12 +269,13 @@ export HISTTIMEFORMAT="%F %T "
 alias apt-get='sudo apt-get'
 alias axel='axel -n 10'
 alias eclipse='/home/rjanardhana/ide/eclipse-jee-kepler-SR1/eclipse & disown'
-alias grep="grep --exclude-dir=\.svn --exclude=*.class --color=auto"
+alias grep="grep -I --exclude-dir=\.svn --exclude=*{\-c,\-gen}.{js,css} --color=auto"
 alias find="find . -iname "
 alias cpv="rsync -P"
 alias up="svntr up"
 alias so=". ~/.bashrc"
 alias vimso="vim ~/.bashrc"
+alias vv="vim ~/.vimrc"
 
 # dev alias
 alias ini="vim config/hosts/rjanardhana-dev.ini"

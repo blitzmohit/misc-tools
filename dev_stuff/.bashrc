@@ -248,6 +248,23 @@ function jshints(){
     /usr/local/bin/jshint --config /home/rjanardhana/.jshint_simple $filename
 }
 
+# better grep
+function gr() {
+    echo "grep -Iirn --exclude-dir=\.svn --exclude=*{\-c,\-gen}.{js,css} --color=auto $@ *"
+    grep -Iirn --exclude-dir=\.svn --exclude=*{\-c,\-gen}.{js,css} --color=auto $@ * 
+}
+
+# shortcut to find
+function fd() {
+    echo "find . -name $@"
+    find . -name $@
+}
+
+# dictionary
+function dictionary() {
+    echo "curl dict://dict.org/d:$@"
+    curl dict://dict.org/d:$@
+}
 
 #Custom aliases and exports
 #exports
@@ -261,21 +278,21 @@ export prerelease='/home/rjanardhana/trsrc-PRERELEASE'
 export SVN_EDITOR='vim'
 export css="$TRTOP/site/css2"
 export js="$TRTOP/site/js3"
-export fb='/home/rjanardhana/cron-scripts/logs/rsync-fbrs.log'
 export HISTTIMEFORMAT="%F %T "
+export fb='/home/rjanardhana/cron-scripts/logs/rsync-fbrs.log'
+export ACKRC="/home/rjanardhana/.ackrc"
 
 # aliases
 # command alias
 alias apt-get='sudo apt-get'
 alias axel='axel -n 10'
-alias eclipse='/home/rjanardhana/ide/eclipse-jee-kepler-SR1/eclipse & disown'
-alias grep="grep -I --exclude-dir=\.svn --exclude=*{\-c,\-gen}.{js,css} --color=auto"
-alias find="find . -iname "
+alias eclipse='/home/rjanardhana/ide/eclipse-jee/eclipse & disown'
 alias cpv="rsync -P"
 alias up="svntr up"
 alias so=". ~/.bashrc"
-alias vimso="vim ~/.bashrc"
+alias vb="vim ~/.bashrc"
 alias vv="vim ~/.vimrc"
+alias sp="python /home/rjanardhana/git/spotify-random/sp.py"
 
 # dev alias
 alias ini="vim config/hosts/rjanardhana-dev.ini"
@@ -287,6 +304,8 @@ alias mac="ssh rjanardhana@rj-mac-dev.dhcp.tripadvisor.com"
 alias makeunit='cd $TRTOP; make java_unittests; cd -'
 alias c='colordiff | less -R'
 alias slogin='echo "svntr login rjanardhana"; svntr login rjanardhana'
+alias cunit='cd $TRTOP; ant jar-unittests'
+alias su='single_unit_test'
 
 # tweak alias
 alias csson="tweak feature on css_CONCAT; tweak feature on css_COMPRESS"
@@ -306,14 +325,11 @@ alias trt='cd $TRTOP/tr'
 alias css='cd $TRTOP/site/css2'
 alias js='cd $TRTOP/site/js3'
 
-# modules framework
-alias dm='cd $TRTOP/site/dust/src/modules'
-alias d='cd $TRTOP/site/dust'
-alias cm='cd $TRTOP/config/modules.d'
-alias tm='cd $TRTOP/tr/com/TripResearch/modules'
-alias jsm='cd $TRTOP/site/js3/src/modules'
-alias cssm='cd $TRTOP/site/css2/src/modules'
-alias td='tweak flush dust'
+# mobile
+alias vm='cd $TRTOP/site/velocity_redesign/mobile'
+alias sm='cd $TRTOP/tr/com/TripResearch/servlet/mobile'
+alias jm='cd $TRTOP/site/js3/src/mobile'
+alias cm='cd $TRTOP/site/css2/mobile'
 
 # svn
 alias bdiff='svntr diff -B'
@@ -324,3 +340,7 @@ alias ptmo='psql -U tripmonster -h tripmonster'
 
 # misc
 alias wallpaper='cd /usr/share/backgrounds'
+
+# temp
+#alias L='cd /home/rjanardhana/trsrc-LAST_MINUTE_MOBILE'
+alias B='cd /home/rjanardhana/trsrc-MOBILE_BUGS_BATCH_OCT_2013'
